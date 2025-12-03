@@ -4,34 +4,68 @@
 <head>
     <title>Index Page</title>
     <link rel="stylesheet" type="text/css" href="../Styles/styles.css">
+    
 </head>
 <body>
     <header>
-        <h1>Index Page</h1>
     </header>
+    <div class="navbar">
+        <div class="logo"></div>
+
+        <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact-us">Contact Us</a>
+    </div>
+    </div>
+    
     <main>
         <section id="home">
-            <h2>Home</h2>
-            <p>Welcome to our website.</p>
+            <h1>Dyade Construction</h1>
+            <p>Construction Company</p>
+            
         </section>
         <section id="services">
-            <h2>Services</h2>
-            <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
-            </ul>
+
+            <div class="cards-container">
+
+                <div class="card">
+                    <h3>Service 1</h3>
+                    <p>Description of service 1.</p>
+                </div>
+                <div class="card">
+                    <h3>Service 1</h3>
+                    <p>Description of service 1.</p>
+                </div>
+                <div class="card">
+                    <h3>Service 1</h3>
+                    <p>Description of service 1.</p>
+                </div>
+                <div class="card">
+                    <h3>Service 1</h3>
+                    <p>Description of service 1.</p>
+                </div>
+
+
+            </div>
         </section>
         <section id="contact-us">
-            <h2>Contact Us</h2>
-            <p>Have any questions? Send us an email.</p>
-            <address>
-                email@example.com
-            </address>
+            <form class="contact-form">
+                <h2>Contact Us</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </section>
     </main>
     <footer>
         <p>&copy; 2020</p>
     </footer>
+
+    <script src="../Script/script.js"></script>
 </body>
 </html>
