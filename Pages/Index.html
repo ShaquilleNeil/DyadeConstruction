@@ -5,6 +5,8 @@
     <title>Index Page</title>
     <link rel="stylesheet" type="text/css" href="../Styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     
 </head>
@@ -40,17 +42,19 @@
            
         </section>
 
-        <section id="about-us">
-            <div class = "side_image">
-                <img src="../Images/side.jpg" class="side_image" />
-            </div>
-            <div class="about_info">
+        <section class="about-split-section" id="about-us" >
+            <div class="image-side"></div>
+        
+        
+        
+            <div class="content-side">
                 <h2>About Us</h2>
-            <p>We are a team of experienced construction </br>professionals who are dedicated to providing the best possible service to our clients.</p>
-            <button class="learn-more-button">Learn More</button>
+                <p>We are a team of experienced construction professionals who are dedicated
+                   to providing the best possible service to our clients.</p>
+                <button class="learn-more-button">Learn More</button>
             </div>
-            
         </section>
+        
         
         <section id="services">
             <div class="header_title">
@@ -67,25 +71,25 @@
                     <h3>Home Renovation</h3>
                     <p>We specialize in home renovation and construction.</p>
                    
-                    <button>Get a Quote</button>
+                    <button class="quote_btn" onClick="location.href ='#contact-us'" data-title="Renovation">Get a Quote</button>
                 </div>
                 <div class="card">
                     <img src="../Images/maintenance.jpg" alt="Card 2">
                     <h3>Maintenance</h3>
                     <p>We offer maintenance services for your home and business.</p>
-                    <button>Get a Quote</button>
+                    <button class="quote_btn" onClick="location.href ='#contact-us'" data-title="Maintenance">Get a Quote</button>
                 </div>
                 <div class="card">
                     <img src="../Images/manage.jpg" alt="Card 3">
                     <h3>Property Management</h3>
                     <p>We manage your property and provide maintenance services.</p>
-                    <button>Get a Quote</button>
+                    <button class="quote_btn" onClick="location.href ='#contact-us'" data-title="Property Management">Get a Quote</button>
                 </div>
                 <div class="card">
                     <img src="../Images/delivery.jpg" alt="Card 4">
-                    <h3>Material Delivery & Garbage Removal</h3>
+                    <h3>Material Logistics</h3>
                     <p>We deliver materials to your site and remove garbage after construction.</p>
-                    <button>Get a Quote</button>
+                    <button class="quote_btn" onClick="location.href ='#contact-us'" data-title="Material Logistics">Get a Quote</button>
                 </div>
 
 
@@ -140,7 +144,7 @@
                     </div>
                     
                     <label for="message">Message:</label>
-                    <textarea id="message" name="message" placeholder="Enter your message here" required></textarea>
+                    <textarea id="message" name="message" placeholder="Describe your project" required></textarea>
                     <button type="submit" class="btn_form" style="font-size: 20px;"><i class="bi bi-send-fill" style="font-size: 22px;"></i> Submit</button>
                 </form>
             </div>
@@ -153,7 +157,33 @@
         <p>&copy; 2020</p>
     </footer>
 
-    <script src="../Script/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 900,      // animation speed
+        easing: "ease-out", // feel of animation
+        once: true,         // animate only first time in view
+        offset: 120         // start when 120px visible
+      });
+    </script>
+    <script>
+        document.querySelectorAll(".quote_btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const service = btn.getAttribute("data-title");
+                
+                // scroll to contact section
+                document.querySelector("#contact-us").scrollIntoView({ behavior: "smooth" });
+        
+                // fill subject field
+                setTimeout(()=>{
+                    document.getElementById("subject").value = service;
+                    document.getElementById("subject").focus();
+                }, 500); // slight delay allows scroll before typing
+            });
+        });
+        </script>
+        
+    
     <script>
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');

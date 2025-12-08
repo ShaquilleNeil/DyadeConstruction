@@ -2,15 +2,16 @@ body{
     padding:0;
     margin: 0;
     position: relative;
-    background: linear-gradient(to bottom, #ffffff, #ffffff);
-    font-family: sans-serif;
+  
+    font-family: 'Poppins', sans-serif;
+   
 }
 
 #home::after{
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.643);
     z-index: 0;
     pointer-events: none;
 }
@@ -24,11 +25,13 @@ html{
 }
 
 .navbar {
-    background-color: transparent;
+    /* backdrop-filter: blur(10px); */
+    background: rgba(255, 255, 255, 0);
+    border: none;
     overflow: hidden;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 1;
     height: 100px;
     display: flex;
@@ -64,6 +67,16 @@ p {
     z-index: 10;
 }
 
+h1, p, button {
+    opacity: 0;
+    animation: fadeInUp .8s forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity:0; transform: translateY(20px); }
+    to   { opacity:1; transform: translateY(0); }
+}
+
 section {
    width: 100vw;
     position: relative;
@@ -77,7 +90,7 @@ section {
 
 }
 #home{
-    background: url(../Images/backtest.jpg) center/cover no-repeat;
+    background: url(../Images/back4.jpg) center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,7 +126,9 @@ section {
     height: 50px;
     padding: 10px;
     z-index: 10;
-    border-radius: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
 
     /* This is the fix 🔥 */
     display: flex;
@@ -131,32 +146,19 @@ section {
 .btn_eservices:hover{
 background-color: white;
 color: black;
+transform: translateY(-3px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 .btn_qt:hover{
 background-color: white;
 color: black;
+transform: translateY(-3px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 
-#about-us{
-    display: flex;
-    flex-direction: row;
-    align-items: space-between;
-}
 
-.about_info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-    padding: 20px;
-    border-radius: 10px;
-    width: 50%;
-    height: 100vh;
-    position: relative;
-    left: 100px;
-}
+
 
 #services{
     height: 100vh;
@@ -166,7 +168,7 @@ color: black;
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    
+    background: #ffffff;
 
 }
 
@@ -200,18 +202,12 @@ color: black;
     text-align: center;
     width: 300px;
     height: 400px;
-    /* 🍸 Glass effect here */
-    background: rgba(255, 255, 255, 0.15);        /* translucent glass */
-    backdrop-filter: blur(10px) saturate(180%);   /* main frost */
-    -webkit-backdrop-filter: blur(10px);          /* Safari */
-    border: 1px solid rgba(29, 120, 41, 0.712);  /* light edge */
-
-    box-shadow: 
-        0 4px 20px rgba(0,0,0,0.25),              /* soft depth */
-        inset 0 0 8px rgba(255,255,255,0.2);  
-             /* glow inside */
-    border-radius: 10px;
+    backdrop-filter: blur(7px);
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.4);
     overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     margin: 20px;
     transition: all 0.3s ease;
 }
@@ -332,7 +328,8 @@ color: black;
 }
 
 .contact-container {
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.704);
+    backdrop-filter: blur(8px);
     display: flex;
     width: 50vw;
     height: 75vh;
@@ -424,7 +421,8 @@ color: black;
     text-align: center;
     width: 400px;
     height: 230px;
-    background-color: #ffffff;
+    background-color: #fcfcfc;
+    backdrop-filter: blur(8px);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -473,5 +471,89 @@ color: black;
     margin-bottom: 5px;
     color: #4a3f35;
     margin-top: 10px;
+}
+
+
+.about-split-section{
+    display:flex !important;
+    align-items:stretch !important;
+    justify-content:space-between !important;
+    text-align:left !important;
+    padding:0 !important;
+}
+
+
+/* Left — Full Image */
+.about-split-section{
+
+    height:100vh;
+    width:100%;
+    position:relative;
+    overflow:hidden;
+   
+}
+
+/* Left: Full Image */
+.image-side{
+    width:90%;
+    background:url('../Images/side2.jpg') center/cover no-repeat;
+    clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+
+}
+
+.image-side::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.434);
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* Right: About side */
+.content-side{
+    width:50%;
+    background:#ffffff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-left:120px;   /* more spacing = premium look */
+    padding-right:120px;
+   
+    
+}
+
+
+.content-side h2{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.content-side p{
+    font-size:20px;
+    line-height:1.7;
+    margin-bottom:45px;
+    max-width:520px;
+    color:#222;
+}
+
+/* Perfect button styling */
+.learn-more-button{
+    background:#000;
+    color:white;
+    padding:16px 40px;
+    border-radius:40px;
+    font-size:18px;
+    font-weight:600;
+    transition:.3s ease;
+    align-self:flex-start; /* aligns left like your image */
+}
+
+.learn-more-button:hover{
+    background:#fff;
+    color:#000;
+    border:2px solid #000;
 }
 
